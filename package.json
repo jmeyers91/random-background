@@ -1,19 +1,28 @@
 {
   "name": "random-background",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ubuntu desktop background switcher.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "dotenv": "^8.0.0",
     "download": "^7.1.0",
     "execa": "^1.0.0",
     "node-fetch": "^2.6.0",
     "unsplash-js": "^5.0.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmeyers91/random-background.git"
+  },
+  "keywords": [],
+  "author": "James Meyers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmeyers91/random-background/issues"
+  },
+  "homepage": "https://github.com/jmeyers91/random-background#readme"
 }
