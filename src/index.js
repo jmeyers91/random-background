@@ -7,6 +7,7 @@ const unsplash = require('./unsplash');
 const setBackgroundImage = require('./utils/setBackgroundImage');
 const setScreensaverBackgroundImage = require('./utils/setScreensaverBackgroundImage');
 const wait = require('./utils/wait');
+const getScreenDimensions = require('./utils/getScreenDimensions');
 const {
   RANDOM_BACKGROUND_INTERVAL,
   RANDOM_BACKGROUND_WIDTH,
@@ -35,6 +36,20 @@ if (changeInterval < MIN_INTERVAL) {
 
 main();
 async function main() {
+  let screenWidth;
+  let screenHeight;
+
+  if (RANDOM_BACKGROUND_WIDTH && RANDOM_BACKGROUND_HEIGHT) {
+    screenWidth = parseInt(RANDOM_BACKGROUND_WIDTH, 10);
+    screenHeight = parseInt(RANDOM_BACKGROUND_HEIGHT, 10);
+  } else {
+    const { width, height } = await getScreenDimensions();
+    console.log(`Detected screen dimensions ${width}x${height}`);
+    screenWidth = width;
+    screenHeight = height;
+  }
+
+
   while (true) {
     console.time('Done');
     try {
@@ -46,7 +61,7 @@ async function main() {
         collections: collections,
       });
       const photo = await photoResponse.json();
-      const filepath = path.join(imagesRoot, 'background');
+      const filepath = path.join(imagesRoot, 'background.img');
 
       console.log('Downloading photo');
       writeFileSync(filepath, await download(photo.urls.raw));

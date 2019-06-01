@@ -15,20 +15,14 @@ const { env } = process;
 
 module.exports = {
   /**
-   * Width of images to use for the background. Defaults to 1920.
+   * Width of images to use for the background. Auto-detected if not provided.
    */
-  RANDOM_BACKGROUND_WIDTH: assertNotNaN(
-    env.RANDOM_BACKGROUND_WIDTH || '1920',
-    `Invalid var RANDOM_BACKGROUND_WIDTH: '${env.RANDOM_BACKGROUND_WIDTH}'`
-  ),
+  RANDOM_BACKGROUND_WIDTH: env.RANDOM_BACKGROUND_WIDTH,
 
   /**
-   * Height of images to use for the background. Defaults to 1080.
+   * Height of images to use for the background. Auto-detected if not provided.
    */
-  RANDOM_BACKGROUND_HEIGHT: assertNotNaN(
-    env.RANDOM_BACKGROUND_HEIGHT || '1080',
-    `Invalid var RANDOM_BACKGROUND_HEIGHT: '${env.RANDOM_BACKGROUND_HEIGHT}'`
-  ),
+  RANDOM_BACKGROUND_HEIGHT: env.RANDOM_BACKGROUND_HEIGHT,
 
   /**
    * Number of minutes between background changes. Defaults to 1 hour.
